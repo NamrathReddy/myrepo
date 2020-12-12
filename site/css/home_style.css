@@ -1,0 +1,70 @@
+body{
+           
+            background-color: mediumspringgreen;
+            margin: 0;
+            
+            }
+        
+        
+        
+        
+        
+      #maincontent  h1  {
+            font-size: 4em;
+            text-align: center;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 0px;
+            }
+        
+       div p{
+            font-size: 2em;
+            text-align: center;
+            
+            }
+        
+    div>svg {
+            display: block;
+           margin: 0 auto;
+            }
+        
+       #maincontent  ul {
+            list-style-type: none;
+            }
+        
+       #maincontent  ul  a:hover, ul a:active{
+                                  color: black;
+                                  font-weight: bold;
+                                  
+                                  background-color: 	goldenrod;
+                                 } 
+        
+     #maincontent  li {
+            text-align: center;
+            position: relative;
+            right: 18px; 
+           
+          } 
+      
+   #maincontent   li  a {
+            text-decoration: none;
+            color: white;
+            border: 2px solid black; 
+            border-radius: 12.5px;
+            display: block;  
+            margin: 0 auto;
+            margin-bottom: 10px;
+            text-align: center;
+            padding: 10px;
+            background-color: crimson;
+            width: 175px;
+            }
+      
+    
+      
+        
+      
+        
+        
+        
+       
