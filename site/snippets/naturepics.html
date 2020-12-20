@@ -15,6 +15,7 @@
 */
         body{
             background: lightgreen;
+             
         }
         
         h1{
@@ -62,7 +63,7 @@
     <br><br>
     <div class="picscontainer">
     <h2>Landscapes</h2>
-    <img src="../images/potraits/p5.JPG" height="200px" id="pic0" onclick="magnify(this.id)"> 
+    <img src="../images/potraits/p5.JPG" height="200px" id="pic0" onclick="magnify(this.id)" > 
     <img src="../images/potraits/p4.JPG" height="200px" id="pic1" onclick="magnify(this.id)">
     <img src="../images/potraits/p2.JPG" height="200px" id="pic2" onclick="magnify(this.id)">
     <br>
@@ -81,19 +82,43 @@
     <br>
     </div>
     <script type="text/javascript">
+        var i='0';
+        var imgsrc;
     function magnify(clicked_id){
         
         var cfg = document.getElementById(clicked_id);
-        cfg.style.position="absolute";
+        
+        
+        if(i=='0'){
+        imgsrc = cfg.src;
+        cfg.src+="r.JPG";//add .JPGr to the high res photo copy to acheive this so the file name will be somethig.JPGr.JPG
+        cfg.style.position="fixed";
         cfg.style.top="5%";
+        cfg.style.left="15%";
+            cfg.style.right="15%";
         cfg.style.height="90%";
        cfg.style.width = "auto";
-        cfg.addEventListener("click",function(){alert("alert");
-                                              
-                                               cfg.style.height="200px";
-                                                cfg.style.position="relative";
-                                                
-                                               });
+           cfg.style.boxShadow="0px 0px"; 
+       
+            i='1';
+            return;
+        }
+        
+        if(i==1){
+            cfg.src = imgsrc;
+            cfg.style.height="200px";
+            cfg.style.position="relative";
+            cfg.style.left="0%";
+            cfg.style.right="0%";
+            cfg.style.boxShadow= "10px 5px grey";
+            
+            i='0';
+            return;
+        }
+    }
+        
+        
+        
         
 //       setTimeout(function(){confirm("these are the pictures details");},2000);
         
@@ -102,7 +127,7 @@
 //        var crntwidth = cfg.clientWidth;
 //        cfg.style.width = (crntwidth +200) + "px";
         
-    }
+    
     </script>
 </body>
 </html><!--nature pics-->
