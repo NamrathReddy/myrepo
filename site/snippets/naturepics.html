@@ -33,22 +33,23 @@
             
         }
         
+/*
         img:hover{
         
             width: auto;
             height: 400px;
-/*            transition: 5s;*/
-        }
-        img{
-            overflow:scroll;
-        }
 
+        }
+*/
+        
+        .picscontainer{
+            width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
         
       
-        
-        
-            
-        
     
     </style>
     
@@ -59,17 +60,49 @@
     <br><br>
 <center><h1>NATURE PHOTOGRAPHY</h1></center>
     <br><br>
-    
-    <img src="../images/potraits/p5.JPG" height="200px"> 
-    <img src="../images/potraits/p4.JPG" height="200px">
+    <div class="picscontainer">
+    <h2>Landscapes</h2>
+    <img src="../images/potraits/p5.JPG" height="200px" id="pic0" onclick="magnify(this.id)"> 
+    <img src="../images/potraits/p4.JPG" height="200px" id="pic1" onclick="magnify(this.id)">
+    <img src="../images/potraits/p2.JPG" height="200px" id="pic2" onclick="magnify(this.id)">
+    <br>
+    <img src="../images/potraits/p2.JPG" height="200px" id="pic3" onclick="magnify(this.id)">
+    <img src="../images/potraits/p5.JPG" height="200px" id="pic4" onclick="magnify(this.id)">
+    <img src="../images/potraits/p4.JPG" height="200px" id="pic5" onclick="magnify(this.id)">
+    <br>
+    <img src="../images/potraits/p4.JPG" height="200px" id="pic6" onclick="magnify(this.id)">
+    <br>
+    <h2>Potraits</h2>
     <img src="../images/potraits/p3.JPG" height="200px">
-    <img src="../images/potraits/p2.JPG" height="200px">
     <img src="../images/potraits/p1.JPG" height="200px">
     <img src="../images/potraits/p3.JPG" height="200px">
-    <img src="../images/potraits/p2.JPG" height="200px">
-    <img src="../images/potraits/p5.JPG" height="200px">
-    <img src="../images/potraits/p4.JPG" height="200px">
+    <br>
     <img src="../images/potraits/p3.JPG" height="200px">
-    <img src="../images/potraits/p4.JPG" height="200px">
+    <br>
+    </div>
+    <script type="text/javascript">
+    function magnify(clicked_id){
+        
+        var cfg = document.getElementById(clicked_id);
+        cfg.style.position="absolute";
+        cfg.style.top="5%";
+        cfg.style.height="90%";
+       cfg.style.width = "auto";
+        cfg.addEventListener("click",function(){alert("alert");
+                                              
+                                               cfg.style.height="200px";
+                                                cfg.style.position="relative";
+                                                
+                                               });
+        
+//       setTimeout(function(){confirm("these are the pictures details");},2000);
+        
+//       var cfg = document.getElementById("pic");
+//
+//        var crntwidth = cfg.clientWidth;
+//        cfg.style.width = (crntwidth +200) + "px";
+        
+    }
+    </script>
 </body>
-</html><!--nature pics width="200px" height="200px"-->
+</html><!--nature pics-->
