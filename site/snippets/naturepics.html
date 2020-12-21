@@ -4,15 +4,14 @@
     
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     
 	<title>Nature PICS</title>
     <style type="text/css">
     
-/*
         *{
     box-sizing: boder-box;
     }
-*/
         body{
             background: lightgreen;
              
@@ -30,7 +29,13 @@
         
         img {
             margin: 0px 25px 25px 25px;
+            
             box-shadow: 10px 5px grey;
+            border: 3px solid black;
+            padding: 0px;
+            background: black;
+            position: fixed;
+            border-radius: 10px;
             
         }
         
@@ -44,10 +49,14 @@
 */
         
         .picscontainer{
-            width: 75%;
+            width: 80%;
             margin-left: auto;
             margin-right: auto;
             
+        }
+        h2{
+            position: relative;
+            left: 10%;
         }
         
       
@@ -61,29 +70,35 @@
     <br><br>
 <center><h1>NATURE PHOTOGRAPHY</h1></center>
     <br><br>
-    <div class="picscontainer">
     <h2>Landscapes</h2>
-    <img src="../images/potraits/p5.JPG" height="200px" id="pic0" onclick="magnify(this.id)" > 
-    <img src="../images/potraits/p4.JPG" height="200px" id="pic1" onclick="magnify(this.id)">
-    <img src="../images/potraits/p2.JPG" height="200px" id="pic2" onclick="magnify(this.id)">
-    <br>
-    <img src="../images/potraits/p2.JPG" height="200px" id="pic3" onclick="magnify(this.id)">
-    <img src="../images/potraits/p5.JPG" height="200px" id="pic4" onclick="magnify(this.id)">
-    <img src="../images/potraits/p4.JPG" height="200px" id="pic5" onclick="magnify(this.id)">
-    <br>
-    <img src="../images/potraits/p4.JPG" height="200px" id="pic6" onclick="magnify(this.id)">
-    <br>
+    <div class="picscontainer">
+    
+    <img src="../images/potraits/p5.JPG" class="col-lg-3" height="200px" id="pic0" onclick="magnify(this.id)" style="padding: 0px;"> 
+    <img src="../images/potraits/p4.JPG" class="col-lg-3" height="200px" id="pic1" onclick="magnify(this.id)" style="padding: 0px;">
+    <img src="../images/potraits/p2.JPG" class="col-lg-3" height="200px" id="pic2" onclick="magnify(this.id)" style="padding: 0px;">
+    
+    <img src="../images/potraits/p2.JPG" class="col-lg-3" height="200px" id="pic3" onclick="magnify(this.id)" style="padding: 0px;">
+    <img src="../images/potraits/p5.JPG" class="col-lg-3" height="200px" id="pic4" onclick="magnify(this.id)"style="padding: 0px;">
+    <img src="../images/potraits/p4.JPG" class="col-lg-3" height="200px" id="pic5" onclick="magnify(this.id)"style="padding: 0px;">
+    
+    <img src="../images/potraits/p4.JPG" class="col-lg-3" height="200px" id="pic6" onclick="magnify(this.id)" style="padding: 0px;">
+    </div>
     <h2>Potraits</h2>
+    <div class="picscontainer">
+    
     <img src="../images/potraits/p3.JPG" height="200px">
     <img src="../images/potraits/p1.JPG" height="200px">
     <img src="../images/potraits/p3.JPG" height="200px">
-    <br>
+    
     <img src="../images/potraits/p3.JPG" height="200px">
-    <br>
+    
     </div>
+    
     <script type="text/javascript">
         var i='0';
         var imgsrc;
+//        var dsh = document.getElementsByClassName("picscontainer")[0];
+        var dsh = document.getElementsByTagName("body")[0];
     function magnify(clicked_id){
         
         var cfg = document.getElementById(clicked_id);
@@ -91,26 +106,34 @@
         
         if(i=='0'){
         imgsrc = cfg.src;
-        cfg.src+="r.JPG";//add .JPGr to the high res photo copy to acheive this so the file name will be somethig.JPGr.JPG
+//        cfg.src+="r.JPG";//add .JPGr to the high res photo copy to acheive this so the file name will be somethig.JPGr.JPG
+            cfg.className+="col-lg-1";
         cfg.style.position="fixed";
         cfg.style.top="5%";
         cfg.style.left="15%";
             cfg.style.right="15%";
         cfg.style.height="90%";
        cfg.style.width = "auto";
-           cfg.style.boxShadow="0px 0px"; 
-       
+           cfg.style.boxShadow="0px 0px";
+            
+            dsh.style.visibility="hidden";
+            cfg.style.visibility="visible";
+//       document.write("<img src="+imgsrc+"onclick=magnify(this.id)>");
             i='1';
             return;
         }
         
         if(i==1){
             cfg.src = imgsrc;
+//            document.innerHTML("<img src="+imgsrc+">");
+            
+            
+            dsh.style.visibility="visible";
             cfg.style.height="200px";
             cfg.style.position="relative";
             cfg.style.left="0%";
             cfg.style.right="0%";
-            cfg.style.boxShadow= "10px 5px grey";
+            cfg.style.boxShadow= "10px 5px black";
             
             i='0';
             return;
@@ -129,5 +152,16 @@
         
     
     </script>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
-</html><!--nature pics-->
+</html><!--nature pics
+ <img src="../images/potraits/p3.JPG" class="col-lg-4" height="200px" id="picp0" onclick="magnify(this.id)" style="padding: 0px;">
+    <img src="../images/potraits/p1.JPG" class="col-lg-4" height="200px" width="auto" id="picp1" onclick="magnify(this.id)" style="padding: 0px;">
+    <img src="../images/potraits/p3.JPG" class="col-lg-4" height="200px" width="auto" id="picp2" onclick="magnify(this.id)" style="padding: 0px;">
+    
+    <img src="../images/potraits/p3.JPG" class="col-lg-4" height="200px" width="auto" id="picp3" onclick="magnify(this.id)" style="padding: 0px;">-->
